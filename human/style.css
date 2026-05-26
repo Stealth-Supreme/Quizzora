@@ -1,0 +1,77 @@
+:root{
+    --primary-dark : #0A1128;
+    --secondary : #1C2541;
+    --accent : #00B4D8;
+    --font : #FFFFFF;
+    --secondary-font: #E0E1DD;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+body{
+    background-color: var(--primary-dark);
+    color: var(--font);
+    padding-left: 20px;
+}
+
+.heading{
+    text-align: center;
+    padding-top: 50px;
+    font-size: 4rem;
+    position: relative;
+    width: max-content;
+    margin-left: 40%;
+}
+
+.heading::after{
+    content: "";
+    width: 50%;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgb(0, 0, 114) , rgb(197, 0, 197));
+}
+
+button{
+    padding: 10px 30px;
+    border-radius: 100px;
+    background-color: var(--secondary);
+    border: none;
+    position: relative;
+}
+
+button{
+    text-decoration: none;
+    color: var(--font);
+}
+
+button::after{
+    content: "";
+    width: 105%;
+    height: 110%;
+    position: absolute;
+    left: -2.5%;
+    bottom: -5%;
+    border-radius: 100px;
+    background: linear-gradient(to right, rgb(0, 0, 114) , rgb(197, 0, 197));
+    transition: 400ms;
+    z-index: -1;
+}
+
+button:hover::after{
+    width: 110%;
+    height: 120%;
+    position: absolute;
+    left: -5%;
+    bottom: -10%;
+}
+
+.q2, .q3, .q4, .q5, .q6, .q7, .q8, .q9, .q10, .q11, .q12, .q13, .q14, .q15, .q16, .q17, .q18, .q19, .q20{
+    display : none;
+}

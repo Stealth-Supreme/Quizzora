@@ -1,0 +1,110 @@
+/* Mobile and Viewport Adaptability styles for Quizzora_v2 */
+
+@media (max-width: 768px) {
+  #app-viewport {
+    padding: 8px;
+  }
+
+  /* Stack HUD into a 3x2 grid */
+  #hud-frame-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  body.unlock-hud #hud-badges-bar {
+    grid-column: span 3;
+  }
+
+  .hud-card {
+    padding: 6px 4px;
+  }
+
+  .hud-label {
+    font-size: 0.55rem;
+  }
+
+  .hud-value {
+    font-size: 0.8rem;
+  }
+
+  /* Make options stack vertically in a single column */
+  #choices-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .choice-card {
+    padding: 12px;
+  }
+
+  .choice-text {
+    font-size: 0.85rem;
+  }
+
+  #active-question-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    min-height: 50px;
+  }
+
+  .console-panel {
+    padding: 15px;
+  }
+
+  /* Shorten command terminal */
+  #terminal-container {
+    height: 110px;
+    padding: 8px 10px;
+  }
+
+  #terminal-cockpit {
+    font-size: 0.85rem;
+  }
+
+  /* Shrink 3D Reactor core on mobile */
+  .reactor-hud-overlay {
+    display: none !important; /* Hide float diagnostics overlays on mobile to save space */
+  }
+
+  .reactor-chamber {
+    width: 220px;
+    height: 220px;
+    transform: rotateX(25deg) rotateY(-10deg);
+  }
+
+  .outer-ring {
+    width: 200px;
+    height: 200px;
+  }
+
+  .middle-ring {
+    width: 150px;
+    height: 150px;
+  }
+
+  .inner-ring {
+    width: 95px;
+    height: 95px;
+  }
+
+  .reactor-pulse-core {
+    width: 45px;
+    height: 45px;
+  }
+
+  .panel-t, .panel-b, .panel-l, .panel-r {
+    display: none !important; /* Hide 3D floating tabs on mobile viewport heights */
+  }
+}
+
+@media (max-height: 600px) {
+  #terminal-container {
+    height: 90px;
+  }
+  #hud-frame-container {
+    gap: 4px;
+  }
+  .hud-card {
+    padding: 4px;
+  }
+}

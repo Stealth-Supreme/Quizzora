@@ -1,0 +1,65 @@
+/* Fixed bottom command terminal console styling for Quizzora_v2 */
+
+#terminal-cockpit {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  font-family: var(--font-holographic);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #ffffff;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) transparent;
+}
+
+/* Custom terminal scrollbars */
+#terminal-cockpit::-webkit-scrollbar {
+  width: 4px;
+}
+#terminal-cockpit::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.terminal-row {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: flex-start;
+  word-break: break-all;
+}
+
+.terminal-prefix {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-right: 8px;
+  flex-shrink: 0;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+/* Failures in terminal */
+.terminal-row:has(.terminal-text:contains("ERROR")) .terminal-prefix,
+.terminal-row:has(.terminal-text:contains("FAILED")) .terminal-prefix {
+  color: #ff3333;
+  text-shadow: 0 0 5px rgba(255, 51, 51, 0.3);
+}
+
+.terminal-text {
+  color: #ffffff;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background-color: var(--accent-color);
+  margin-left: 5px;
+  align-self: center;
+  box-shadow: var(--accent-glow);
+  animation: blinkTerminalCursor 0.8s infinite steps(2);
+}
+
+@keyframes blinkTerminalCursor {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}

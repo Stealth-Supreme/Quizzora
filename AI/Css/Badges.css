@@ -1,0 +1,65 @@
+/* Cyber Badge indicators styling for Quizzora_v2 */
+
+.hud-badge {
+  border-color: var(--border-color);
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+/* Green badge for Q1 solved */
+.badge-first-node {
+  border-color: #39ff14 !important;
+  background: rgba(57, 255, 20, 0.08) !important;
+  color: #39ff14 !important;
+  text-shadow: 0 0 4px rgba(57, 255, 20, 0.3) !important;
+  box-shadow: 0 0 5px rgba(57, 255, 20, 0.15) !important;
+}
+
+/* Yellow badge for midway control (10 solved) */
+.badge-midway-control {
+  border-color: #ffff00 !important;
+  background: rgba(255, 255, 0, 0.08) !important;
+  color: #ffff00 !important;
+  text-shadow: 0 0 4px rgba(255, 255, 0, 0.3) !important;
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.15) !important;
+}
+
+/* Orange badge for stable hand (15 solved) */
+.badge-stable-hand {
+  border-color: #ff9900 !important;
+  background: rgba(255, 153, 0, 0.08) !important;
+  color: #ff9900 !important;
+  text-shadow: 0 0 4px rgba(255, 153, 0, 0.3) !important;
+  box-shadow: 0 0 5px rgba(255, 153, 0, 0.15) !important;
+}
+
+/* Purple badge for elite operators (18 solved) */
+.badge-elite-operator {
+  border-color: #bd00ff !important;
+  background: rgba(189, 0, 255, 0.08) !important;
+  color: #bd00ff !important;
+  text-shadow: 0 0 4px rgba(189, 0, 255, 0.3) !important;
+  box-shadow: 0 0 5px rgba(189, 0, 255, 0.15) !important;
+}
+
+/* Cyan glowing pulser for full mastery (20 solved) */
+.badge-full-system-master {
+  border-color: #00f0ff !important;
+  background: rgba(0, 240, 255, 0.1) !important;
+  color: #00f0ff !important;
+  text-shadow: 0 0 6px rgba(0, 240, 255, 0.5) !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3) !important;
+  animation: glowSystemMaster 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowSystemMaster {
+  0% {
+    box-shadow: 0 0 4px rgba(0, 240, 255, 0.15);
+    text-shadow: 0 0 3px rgba(0, 240, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+  }
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Human form: Quizzora</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1 class="heading">Quizzora</h1>
+    <p style="margin-left: 50%;">@by humans</p>
+
+    <!-- Don't disturb anything above this -->
+    <br><br><br>
+    <p>WARNING : These questions may increase you IQ and you may get better grades in your
+        computer exam, you may top the exam, and everyone may tease you with name "TOPPER"
+    </p>
+
+    <br><br><br>
+    <form action="/submit quiz" method=POST>
+        <div>
+            <label for="the-student-name"> THE STUDENT'S NAME:</label>
+            <input type="text" id="the-student-name" name="user_name" placeholder="Samridh dumb"><br><br><br><br>
+        </div>
+        <div class="q1">
+            <p>Q1 : Which of these is location of attach files icon located on the compose windows?</p><br>
+            <input type="radio" id="q1-top" name="q1" value="top">
+            <label for="q1-top">top</label><br>
+
+            <input type="radio" id="q1-left" name="q1" value="left">
+            <label for="q1-left">Left</label><br>
+
+            <input onclick="showQuestion2()" type="radio" id="q1-bottom" name="q1" value="bottom">
+            <label for="q1-bottom">Bottom</label><br>
+
+            <input type="radio" id="q1-right" name="q1" value="right">
+            <label for="q1-right">Right</label><br><br>
+            <hr><br><br>
+        </div>
+
+        <div class="q2">
+            <p>Q2: Which one of these is part of a URL?</p><br>
+            <input onclick="showQuestion3()" type="radio" id="q2-a" name="q2" value="Apps">
+            <label for="q2-a">Protocol Identifier</label><br>
+
+            <input type="radio" id="q2-b" name="q2" value="Data Centre">
+            <label for="q2-b"> Resource name</label><br>
+
+            <input type="radio" id="q2-c" name="q2" value="Communication and Networking">
+            <label for="q2-c">Domain Name</label><br>
+
+            <input type="radio" id="q2-d" name="q2" value="Artificial intelligence">
+            <label for="q2-d">HTTP</label><br><br>
+            <hr><br><br>
+        </div>
+
+        <div class="q3">
+            <p>Q3:WHich one of these is not part of a webpage?</p><br>
+            <input type="radio" id="q3-a" name="q3" value="Apps">
+            <label for="q3-a">Page title</label><br>
+
+            <input type="radio" id="q3-b" name="q3" value="Data Centre">
+            <label for="q3-b">Navigation Bar</label><br>
+
+            <input type="radio" id="q3-c" name="q3" value="Communication and Networking">
+            <label for="q3-c">Footer</label><br>
+
+            <input onclick="showQuestion4()" type="radio" id="q3-d" name="q3" value="Artificial intelligence">
+            <label for="q3-d">Domain Name</label><br><br>
+            <hr><br><br>
+        </div>
+
+        <div class="q4">
+            <p>Q4:Which onr of these is not a browser?</p><br>
+            <input type="radio" id="q4-a" name="q4" value="a">
+            <label for="q4-a">Firefox</label><br>
+
+            <input type="radio" id="q4-b" name="q4" value="b">
+            <label for="q4-b">Safari</label><br>
+
+            <input onclick="showQuestion5()" type="radio" id="q4-c" name="q4" value="c">
+            <label for="q4-c">Google</label><br>
+
+            <input type="radio" id="q4-d" name="q4" value="d">
+            <label for="q4-d">Opera GX</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q5">
+            <p>Q5:Select most common uses of INternet?</p><br>
+            <input onclick="showQuestion6()" type="radio" id="q5-a" name="q5" value="a">
+            <label for="q5-a">Bussiness</label><br>
+
+            <input type="radio" id="q5-b" name="q5" value="b">
+            <label for="q5-b">Cyber terrorism</label><br>
+
+            <input type="radio" id="q5-c" name="q5" value="c">
+            <label for="q5-c">Spamming</label><br>
+
+            <input type="radio" id="q5-d" name="q5" value="d">
+            <label for="q5-d">Google Dorking</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q6">
+            <p>Q6:WHich of these store data permanently?</p><br>
+            <input type="radio" id="q6-a" name="q6" value="a">
+            <label for="q6-a">RAM</label><br>
+
+            <input type="radio" id="q6-b" name="q6" value="b">
+            <label for="q6-b">SDRAM</label><br>
+
+            <input type="radio" id="q6-c" name="q6" value="c">
+            <label for="q6-c">Microphone</label><br>
+
+            <input onclick="showQuestion7()" type="radio" id="q6-d" name="q6" value="d">
+            <label for="q6-d">Hardisks</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q7">
+            <p>Q7:WHich of thesse are productive tools offered by G-mail?</p><br>
+            <input onclick="showQuestion8()" type="radio" id="q7-a" name="q7" value="a">
+            <label for="q7-a">instant messages</label><br>
+
+            <input type="radio" id="q7-b" name="q7" value="b">
+            <label for="q7-b"> calender</label><br>
+
+            <input type="radio" id="q7-c" name="q7" value="c">
+            <label for="q7-c">calls</label><br>
+
+            <input type="radio" id="q7-d" name="q7" value="d">
+            <label for="q7-d">none of these</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q8">
+            <p>Q8:From which word is the term computer derived from?</p><br>
+            <input type="radio" id="q8-a" name="q8" value="a">
+            <label for="q8-a">Computre</label><br>
+
+            <input type="radio" id="q8-b" name="q8" value="b">
+            <label for="q8-b">COmputare</label><br>
+
+            <input onclick="showQuestion9()" type="radio" id="q8-c" name="q8" value="c">
+            <label for="q8-c">COmpute</label><br>
+
+            <input type="radio" id="q8-d" name="q8" value="d">
+            <label for="q8-d">None of these</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q9">
+            <p>Q9:What is limit you can send foe executable files or messages?</p><br>
+            <input type="radio" id="q9-a" name="q9" value="a">
+            <label for="q9-a">75MB</label><br>
+
+            <input onclick="showQuestion10()" type="radio" id="q9-b" name="q9" value="b">
+            <label for="q9-b">25MB</label><br>
+
+            <input type="radio" id="q9-c" name="q9" value="c">
+            <label for="q9-c">50MB</label><br>
+
+            <input type="radio" id="q9-d" name="q9" value="d">
+            <label for="q9-d">2GB</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q10">
+            <p>Q10:Which button is used to start writting an email?</p><br>
+            <input type="radio" id="q10-a" name="q10" value="a">
+            <label for="q10-a">Drafts</label><br>
+
+            <input type="radio" id="q10-b" name="q10" value="b">
+            <label for="q10-b">Calls</label><br>
+
+            <input type="radio" id="q10-c" name="q10" value="c">
+            <label for="q10-c">Delete messages</label><br>
+
+            <input onclick="showQuestion11()" type="radio" id="q10-d" name="q10" value="d">
+            <label for="q10-d">Compose</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q11">
+            <p>Q11:______________ enable the global exchange of data, information, and resources between computers, devices, and users</p><br>
+            <input type="radio" id="q11-a" name="q11" value="a">
+            <label for="q11-a">Apps</label><br>
+
+            <input type="radio" id="q11-b" name="q11" value="b">
+            <label for="q11-b">Data Centre</label><br>
+
+            <input onclick="showQuestion12()" type="radio" id="q11-c" name="q11" value="c">
+            <label for="q11-c">Communication and networking</label><br>
+
+            <input type="radio" id="q11-d" name="q11" value="d">
+            <label for="q11-d">Artificial intelligence</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q12">
+            <p>Q12:What is the collection of related web pages containing images, videos, or other digital media set under the same domain name?</p><br>
+            <input type="radio" id="q12-a" name="q12" value="a">
+            <label for="q12-a">webpage</label><br>
+
+            <input onclick="showQuestion13()" type="radio" id="q12-b" name="q12" value="b">
+            <label for="q12-b">Website</label><br>
+
+            <input type="radio" id="q12-c" name="q12" value="c">
+            <label for="q12-c">search engine</label><br>
+
+            <input type="radio" id="q12-d" name="q12" value="d">
+            <label for="q12-d">browser</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q13">
+            <p>Q13:What was the name of the account in the g-mail image of books?</p><br>
+            <input type="radio" id="q13-a" name="q13" value="a">
+            <label for="q13-a">Kips World</label><br>
+
+            <input type="radio" id="q13-b" name="q13" value="b">
+            <label for="q13-b">Kips Publication</label><br>
+
+            <input onclick="showQuestion14()" type="radio" id="q13-c" name="q13" value="c">
+            <label for="q13-c">Kips Learning</label><br>
+
+            <input type="radio" id="q13-d" name="q13" value="d">
+            <label for="q13-d">Kips Education</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q14">
+            <p>Q14:Which app metioned in book let you edit text?</p><br>
+            <input onclick="showQuestion15()" type="radio" id="q14-a" name="q14" value="a">
+            <label for="q14-a">Wordpad</label><br>
+
+            <input type="radio" id="q14-b" name="q14" value="b">
+            <label for="q14-b">Notepad</label><br>
+
+            <input type="radio" id="q14-c" name="q14" value="c">
+            <label for="q14-c">Google Docs</label><br>
+
+            <input type="radio" id="q14-d" name="q14" value="d">
+            <label for="q14-d">Ms Word</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q15">
+            <p>Q15:Who wrote the quote the quote in this chapter?</p><br>
+            <input type="radio" id="q15-a" name="q15" value="a">
+            <label for="q15-a">Blake Lively</label><br>
+
+            <input type="radio" id="q15-b" name="q15" value="b">
+            <label for="q15-b">Satya Nadella</label><br>
+
+            <input type="radio" id="q15-c" name="q15" value="c">
+            <label for="q15-c">Bill Gates</label><br>
+
+            <input onclick="showQuestion16()" type="radio" id="q15-d" name="q15" value="d">
+            <label for="q15-d">Richard Branson</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q16">
+            <p>Q16:How many friends does the gmail account in the book had?</p><br>
+            <input onclick="showQuestion17()" type="radio" id="q16-a" name="q16" value="a">
+            <label for="q16-a">0</label><br>
+
+            <input type="radio" id="q16-b" name="q16" value="b">
+            <label for="q16-b">1</label><br>
+
+            <input type="radio" id="q16-c" name="q16" value="c">
+            <label for="q16-c">2-5</label><br>
+
+            <input type="radio" id="q16-d" name="q16" value="d">
+            <label for="q16-d">5+</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q17">
+            <p>Q17: How many mails has the person send?</p><br>
+            <input type="radio" id="q17-a" name="q17" value="a">
+            <label for="q17-a">0</label><br>
+
+            <input onclick="showQuestion18()" type="radio" id="q17-b" name="q17" value="b">
+            <label for="q17-b">1</label><br>
+
+            <input type="radio" id="q17-c" name="q17" value="c">
+            <label for="q17-c">2-5</label><br>
+
+            <input type="radio" id="q17-d" name="q17" value="d">
+            <label for="q17-d">5+</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q18">
+            <p>Q18: When was this screenshot taken?</p><br>
+            <input onclick="showQuestion19()" type="radio" id="q18-a" name="q18" value="a">
+            <label for="q18-a">12 June</label><br>
+
+            <input type="radio" id="q18-b" name="q18" value="b">
+            <label for="q18-b">12 May</label><br>
+
+            <input type="radio" id="q18-c" name="q18" value="c">
+            <label for="q18-c">27 June</label><br>
+
+            <input type="radio" id="q18-d" name="q18" value="d">
+            <label for="q18-d">27 May</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q19">
+            <p>Q19: How many E-mails were mentioned in the book?</p><br>
+            <input type="radio" id="q19-a" name="q19" value="a">
+            <label for="q19-a">1</label><br>
+
+            <input onclick="showQuestion20()" type="radio" id="q19-b" name="q19" value="b">
+            <label for="q19-b">2</label><br>
+
+            <input type="radio" id="q19-c" name="q19" value="c">
+            <label for="q19-c">3-5</label><br>
+
+            <input type="radio" id="q19-d" name="q19" value="d">
+            <label for="q19-d">5+</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+        <div class="q20">
+            <p>Q20: In which chapter do we learn about input and output device?</p><br>
+            <input type="radio" id="q20-a" name="q20" value="a">
+            <label for="q20-a">1</label><br>
+
+            <input type="radio" id="q20-b" name="q20" value="b">
+            <label for="q20-b">2</label><br>
+
+            <input  onclick="endTest()" type="radio" id="q20-c" name="q20" value="c">
+            <label for="q20-c">9</label><br>
+
+            <input type="radio" id="q20-d" name="q20" value="d">
+            <label for="q20-d">10</label><br><br>
+            <hr><br><br>
+        </div>
+
+
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
+<!-- question main hi nikal du kya? bta bta bta bta -->
+<!-- behen ka kaam kar rha hu aur ppt bhi almost ready hai, team member ki photo add karni hai? bta, apan do apni dal dete hai -->

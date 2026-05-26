@@ -1,0 +1,412 @@
+/* 3D Holographic Reactor Core styles for Quizzora_v2 (Option A + C Hybrid) */
+
+#reactor-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(10, 5, 30, 0.95) 0%, rgba(2, 0, 8, 0.98) 100%);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.reactor-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  position: relative;
+  align-items: center;
+}
+
+/* Floating overlay panels (Jarvis style) */
+.reactor-hud-overlay {
+  position: absolute;
+  top: 15%;
+  font-family: var(--font-hud);
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 105;
+}
+
+.reactor-hud-overlay.left { left: 8%; text-align: left; }
+.reactor-hud-overlay.right { right: 8%; text-align: right; }
+
+.reactor-hud-item {
+  border-bottom: 1px dashed rgba(0, 240, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+.reactor-hud-item .label {
+  color: var(--text-muted);
+}
+
+.reactor-hud-item .val {
+  color: var(--accent-color);
+  font-weight: 800;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+}
+
+.reactor-hud-item .val.nominal {
+  color: #39ff14;
+  text-shadow: 0 0 5px rgba(57, 255, 20, 0.4);
+}
+
+/* 3D Chamber scene */
+.reactor-scene {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.reactor-chamber {
+  width: 320px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: rotateX(35deg) rotateY(-15deg);
+}
+
+/* Rotating Energy Rings */
+.reactor-ring {
+  position: absolute;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+.outer-ring {
+  width: 300px;
+  height: 300px;
+  border: 3px dashed rgba(0, 240, 255, 0.35);
+  animation: rotateOuterRing 8s linear infinite;
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.1),
+    inset 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+.middle-ring {
+  width: 220px;
+  height: 220px;
+  border: 2px solid rgba(189, 0, 255, 0.4);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: rotateMiddleRing 5s linear infinite reverse;
+}
+
+.inner-ring {
+  width: 140px;
+  height: 140px;
+  border: 4px double rgba(0, 240, 255, 0.6);
+  border-top-color: transparent;
+  animation: rotateOuterRing 3s linear infinite;
+}
+
+/* 3D Holographic Panels flanking core */
+.reactor-holographic-panels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.holo-panel {
+  position: absolute;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  background: rgba(0, 240, 255, 0.02);
+  width: 80px;
+  height: 40px;
+}
+
+.panel-t { top: 0; left: 120px; transform: translateZ(30px) rotateX(90deg); border-bottom: 2px solid var(--accent-color); }
+.panel-b { bottom: 0; left: 120px; transform: translateZ(-30px) rotateX(90deg); border-top: 2px solid var(--accent-color); }
+.panel-l { left: 0; top: 140px; transform: translateZ(15px) rotateY(90deg); border-right: 2px solid var(--accent-purple); }
+.panel-r { right: 0; top: 140px; transform: translateZ(-15px) rotateY(90deg); border-left: 2px solid var(--accent-purple); }
+
+/* Pulsating Core */
+.reactor-pulse-core {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, var(--accent-color) 40%, rgba(189, 0, 255, 0.8) 70%, transparent 100%);
+  position: absolute;
+  box-shadow: 
+    0 0 35px #00f0ff,
+    0 0 70px #bd00ff;
+  animation: pulseReactorCore 1s ease-in-out infinite alternate;
+}
+
+.reactor-flare {
+  position: absolute;
+  width: 2px;
+  height: 280px;
+  background: linear-gradient(to bottom, transparent, var(--accent-color), #ffffff, var(--accent-color), transparent);
+  opacity: 0.6;
+  animation: flickerFlare 0.2s infinite;
+}
+
+/* Animations */
+@keyframes rotateOuterRing {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
+@keyframes rotateMiddleRing {
+  0% { transform: rotateZ(0deg) rotateX(30deg); }
+  100% { transform: rotateZ(360deg) rotateX(30deg); }
+}
+
+@keyframes pulseReactorCore {
+  0% {
+    transform: scale(0.9) translateZ(10px);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.7), 0 0 50px rgba(189, 0, 255, 0.5);
+  }
+  100% {
+    transform: scale(1.1) translateZ(10px);
+    box-shadow: 0 0 45px rgba(0, 240, 255, 0.9), 0 0 90px rgba(189, 0, 255, 0.8);
+  }
+}
+
+@keyframes flickerFlare {
+  0%, 100% { opacity: 0.5; transform: scaleX(1); }
+  50% { opacity: 0.8; transform: scaleX(1.5); }
+}
+
+/* Bottom banner styles */
+.reactor-footer-banner {
+  width: 100%;
+  border: 1px solid rgba(255, 51, 51, 0.4);
+  background: rgba(255, 51, 51, 0.08);
+  color: #ff3333;
+  padding: 8px 10px;
+  font-family: var(--font-hud);
+  font-size: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 51, 51, 0.2);
+}
+
+body.reactor-ascension-active #app-viewport {
+  filter: brightness(0.2);
+  transition: filter 1s ease;
+  pointer-events: none;
+}
+
+/* =========================================
+   DOWNGRADED REACTOR OVERRIDES
+   ========================================= */
+.reactor-downgraded .outer-ring {
+  border-color: rgba(100, 150, 200, 0.2);
+  animation-duration: 20s;
+  box-shadow: inset 0 0 5px rgba(100, 150, 200, 0.1);
+}
+
+.reactor-downgraded .middle-ring {
+  display: none; /* Fewer rings */
+}
+
+.reactor-downgraded .inner-ring {
+  border-color: rgba(100, 100, 150, 0.3);
+  animation-duration: 15s;
+}
+
+.reactor-downgraded .reactor-pulse-core {
+  background: radial-gradient(circle, #888888 0%, #4a6875 50%, transparent 100%);
+  box-shadow: 0 0 15px rgba(74, 104, 117, 0.4);
+  animation: pulseDowngraded 3s ease-in-out infinite alternate;
+}
+
+.reactor-downgraded .reactor-flare {
+  display: none;
+}
+
+.reactor-downgraded .holo-panel {
+  display: none; /* Reduced complexity */
+}
+
+.reactor-downgraded .reactor-hud-item .val {
+  color: #8faab8;
+  text-shadow: none;
+}
+
+@keyframes pulseDowngraded {
+  0% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 10px rgba(74, 104, 117, 0.2); }
+  100% { transform: scale(1.02); opacity: 0.8; box-shadow: 0 0 20px rgba(74, 104, 117, 0.5); }
+}
+
+/* =========================================
+   CREDITS PANEL
+   ========================================= */
+.reactor-credits-panel {
+  position: absolute;
+  bottom: 80px;
+  width: 320px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 15px;
+  font-family: var(--font-holographic);
+  z-index: 110;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+}
+
+.credits-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed rgba(0, 240, 255, 0.4);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  color: #00f0ff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#btn-real-credits {
+  font-size: 0.65rem;
+  padding: 4px 8px;
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  background: transparent;
+  color: #00f0ff;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+#btn-real-credits:hover {
+  background: rgba(0, 240, 255, 0.2);
+}
+
+.credits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #e0e5ff;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.credits-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.credits-list li:last-child {
+  border-bottom: none;
+}
+
+/* Premium Reactor Badge Cards */
+.reactor-badges-panel {
+  position: absolute;
+  top: 32%;
+  left: 8%;
+  width: 250px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 6px;
+  padding: 15px;
+  font-family: var(--font-hud);
+  z-index: 110;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.reactor-badges-header {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  border-bottom: 1px dashed rgba(0, 240, 255, 0.3);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.reactor-badges-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reactor-badge-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.reactor-badge-card .badge-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.reactor-badge-card .badge-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Specific Badge Cards styling matching their neon colors */
+.reactor-badge-card.badge-first-node {
+  border-color: #39ff14;
+  background: rgba(57, 255, 20, 0.05);
+  color: #39ff14;
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.1);
+}
+
+.reactor-badge-card.badge-midway-control {
+  border-color: #ffff00;
+  background: rgba(255, 255, 0, 0.05);
+  color: #ffff00;
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.1);
+}
+
+.reactor-badge-card.badge-stable-hand {
+  border-color: #ff9900;
+  background: rgba(255, 153, 0, 0.05);
+  color: #ff9900;
+  box-shadow: 0 0 8px rgba(255, 153, 0, 0.1);
+}
+
+.reactor-badge-card.badge-elite-operator {
+  border-color: #bd00ff;
+  background: rgba(189, 0, 255, 0.05);
+  color: #bd00ff;
+  box-shadow: 0 0 8px rgba(189, 0, 255, 0.1);
+}
+
+.reactor-badge-card.badge-full-system-master {
+  border-color: #00f0ff;
+  background: rgba(0, 240, 255, 0.08);
+  color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+  animation: glowReactorMaster 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowReactorMaster {
+  0% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.15); }
+  100% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+}
+
+.no-badges {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 10px 0;
+}

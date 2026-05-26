@@ -1,0 +1,86 @@
+:root{
+    --primary-dark : #0A1128;
+    --secondary : #1C2541;
+    --accent : #00B4D8;
+    --font : #FFFFFF;
+    --secondary-font: #E0E1DD;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: var(--primary-dark);
+    color: var(--font);
+}
+
+.heading{
+    text-align: center;
+    padding-top: 50px;
+    font-size: 4rem;
+    position: relative;
+    width: max-content;
+    margin-left: 40%;
+}
+
+.heading::after{
+    content: "";
+    width: 50%;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgb(0, 0, 114) , rgb(197, 0, 197));
+    transition: 100ms;
+}
+
+.heading:hover::after{
+    width: 100%;
+}
+
+.button{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    padding: 100px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    padding: 20px 40px;
+    margin: 0px 60px;
+    border-radius: 100px;
+    background-color: var(--secondary);
+    border: none;
+    position: relative;
+}
+
+button a {
+    text-decoration: none;
+    color: var(--font);
+}
+
+button::after{
+    content: "";
+    width: 105%;
+    height: 110%;
+    position: absolute;
+    left: -2.5%;
+    bottom: -5%;
+    border-radius: 100px;
+    background: linear-gradient(to right, rgb(0, 0, 114) , rgb(197, 0, 197));
+    transition: 400ms;
+    z-index: -1;
+}
+
+button:hover::after{
+    width: 110%;
+    height: 120%;
+    position: absolute;
+    left: -5%;
+    bottom: -10%;   
+}

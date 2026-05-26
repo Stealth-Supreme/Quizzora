@@ -1,0 +1,111 @@
+/* Diagnostic Question and Options Board styles for Quizzora_v2 */
+
+#screen-quiz {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#active-question-text {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+  min-height: 60px;
+}
+
+#choices-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+}
+
+.choice-card {
+  border: 1px solid var(--border-color);
+  background: var(--panel-bg);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color var(--transition-speed) ease, background var(--transition-speed) ease, transform 0.15s ease;
+}
+
+.choice-num {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  font-family: var(--font-hud);
+  font-weight: 800;
+  border-right: 1px dashed var(--border-color);
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+
+.choice-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* Standard Raw Hover */
+.choice-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #ffffff;
+}
+
+/* Phase 4 Unlock: Premium Glass Cards */
+body.unlock-cards .choice-card {
+  background: rgba(14, 8, 38, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(0, 240, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.unlock-cards .choice-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.25),
+    inset 0 0 5px rgba(0, 240, 255, 0.05);
+  background: rgba(0, 240, 255, 0.03);
+}
+
+/* Phase 5 Unlock: Perspective Tilt support */
+body.unlock-motion #choices-container {
+  perspective: 1000px;
+}
+
+body.unlock-motion .choice-card {
+  /* JS tilts coordinate smooth transforms, CSS provides base transitions */
+  transition: transform 0.1s ease, border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+/* Immediate click evaluations */
+.choice-success {
+  border-color: #39ff14 !important;
+  background: rgba(57, 255, 20, 0.08) !important;
+  color: #39ff14 !important;
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.35) !important;
+  text-shadow: 0 0 3px rgba(57, 255, 20, 0.2);
+}
+
+.choice-success .choice-num {
+  color: #39ff14 !important;
+  border-right-color: rgba(57, 255, 20, 0.3) !important;
+}
+
+.choice-failure {
+  border-color: #ff3333 !important;
+  background: rgba(255, 51, 51, 0.08) !important;
+  color: #ff3333 !important;
+  box-shadow: 0 0 15px rgba(255, 51, 51, 0.35) !important;
+  text-shadow: 0 0 3px rgba(255, 51, 51, 0.2);
+}
+
+.choice-failure .choice-num {
+  color: #ff3333 !important;
+  border-right-color: rgba(255, 51, 51, 0.3) !important;
+}

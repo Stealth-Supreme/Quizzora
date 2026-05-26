@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizzora v2 // Sci-Fi AI Operating System</title>
+  
+  <!-- CSS Modular Architecture Architecture Imports -->
+  <link rel="stylesheet" href="Css/Base.css">
+  <link rel="stylesheet" href="Css/Theme.css">
+  <link rel="stylesheet" href="Css/Layout.css">
+  <link rel="stylesheet" href="Css/Shell.css">
+  <link rel="stylesheet" href="Css/Terminal.css">
+  <link rel="stylesheet" href="Css/Hud.css">
+  <link rel="stylesheet" href="Css/Quiz.css">
+  <link rel="stylesheet" href="Css/Reveal.css">
+  <link rel="stylesheet" href="Css/Feedback.css">
+  <link rel="stylesheet" href="Css/Results.css">
+  <link rel="stylesheet" href="Css/Badges.css">
+  <link rel="stylesheet" href="Css/Particles.css">
+  <link rel="stylesheet" href="Css/Reactor.css">
+  <link rel="stylesheet" href="Css/Responsive.css">
+
+  <style>
+    /* Landing screen specific structural styling */
+    .landing-title {
+      font-family: var(--font-hud);
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 4px;
+      margin-bottom: 5px;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    
+    .landing-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .voice-gate-box {
+      border: 1px dashed var(--border-color);
+      padding: 20px;
+      margin-bottom: 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .voice-gate-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-top: 15px;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .glow-pulse-btn {
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 12px 25px;
+    }
+
+    .glow-cyber-btn {
+      background: #ffffff;
+      color: #000000;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 15px 40px;
+      border: none;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      align-self: center;
+    }
+
+    /* Premium glows and keyframes once theme compiles */
+    body.unlock-theme .landing-title {
+      color: var(--accent-color);
+      text-shadow: var(--accent-glow);
+    }
+
+    body.unlock-theme .voice-gate-box {
+      border: 1px solid rgba(0, 240, 255, 0.15);
+      background: rgba(0, 240, 255, 0.01);
+      box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.02);
+    }
+
+    body.unlock-theme .glow-pulse-btn {
+      background: transparent;
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      animation: pulseTealBtn 2s infinite alternate;
+    }
+
+    body.unlock-theme .glow-cyber-btn {
+      background: var(--accent-color);
+      color: #050212;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
+      animation: pulsateNeonBtn 1.5s infinite alternate;
+    }
+
+    @keyframes pulseTealBtn {
+      0% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.1), inset 0 0 5px rgba(0, 240, 255, 0.05); }
+      100% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.15); }
+    }
+
+    @keyframes pulsateNeonBtn {
+      0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+      100% { transform: scale(1.03); box-shadow: 0 0 30px rgba(0, 240, 255, 0.6); }
+    }
+
+    /* Premium Cheat Panel futuristic styling */
+    .cheat-panel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 25px auto;
+      max-width: 480px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 18px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cheat-input {
+      flex-grow: 1;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-family: var(--font-holographic);
+      font-size: 0.95rem;
+      padding: 10px 14px;
+      outline: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .cheat-input::placeholder {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .cheat-input:focus {
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+    }
+
+    body.unlock-theme .cheat-panel {
+      border-color: rgba(0, 240, 255, 0.15);
+      background: rgba(0, 240, 255, 0.01);
+      box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.02);
+    }
+
+    body.unlock-theme .cheat-input {
+      border-color: rgba(0, 240, 255, 0.2);
+      color: var(--accent-color);
+    }
+
+    body.unlock-theme .cheat-input:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 8px rgba(0, 240, 255, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Drifting sparks canvas layer (Phase 7 unlock) -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Interactive HUD cockpit overlay elements -->
+  <div class="hud-crosshair ch-tl"></div>
+  <div class="hud-crosshair ch-tr"></div>
+  <div class="hud-crosshair ch-bl"></div>
+  <div class="hud-crosshair ch-br"></div>
+
+  <!-- Main HUD dashboard shell -->
+  <div id="app-viewport">
+    
+    <!-- Top Cockpit live HUD bar -->
+    <header id="hud-frame-container">
+      
+      <div class="hud-card">
+        <div class="hud-label">SYSTEM</div>
+        <div id="hud-system" class="hud-value">QUIZZORA OS [RAW v0.1]</div>
+      </div>
+
+      <div class="hud-card">
+        <div class="hud-label">NODE</div>
+        <div id="hud-node" class="hud-value">NODE STANDBY</div>
+      </div>
+
+      <div class="hud-card">
+        <div class="hud-label">SCORE</div>
+        <div id="hud-score" class="hud-value">SCORE: 0/0 (0%)</div>
+      </div>
+
+      <!-- Advanced HUD modules unlocked dynamically at Phase 6 -->
+      <div class="hud-card hud-advanced">
+        <div class="hud-label">STATUS</div>
+        <div id="hud-status" class="hud-value status-waiting">WAITING GATE...</div>
+      </div>
+
+      <div class="hud-card hud-advanced">
+        <div class="hud-label">NEXT UNLOCK</div>
+        <div id="hud-next" class="hud-value">SYSTEM STANDBY</div>
+      </div>
+
+      <div class="hud-card hud-advanced">
+        <div class="hud-label">COMPILATION</div>
+        <div id="hud-unlocked" class="hud-value">PHASE 0/20 UNLOCKED</div>
+      </div>
+
+      <!-- Real-time badges drawer, unlocked at Phase 6 -->
+      <div id="hud-badges-bar">
+        <span class="hud-badges-title">SECURED BADGES:</span>
+        <div id="hud-badges"></div>
+      </div>
+
+    </header>
+
+    <!-- Central active dashboard console -->
+    <main id="main-cockpit-console">
+      
+      <div class="console-panel sci-fi-corners">
+        
+        <!-- Screen 1: Landing (Voice Gate Lock) -->
+        <section id="screen-landing">
+          <h1 class="landing-title">QUIZZORA OS</h1>
+          <p class="landing-subtitle">FUTURISTIC DIAGNOSTIC COCKPIT</p>
+
+          <div class="voice-gate-box">
+            <button id="btn-enable-voice" class="glow-pulse-btn">ENABLE SYSTEM VOICE GATE</button>
+            <p class="voice-gate-desc">
+              INITIALIZE SYNAPTIC RULES. CANDIDATES MUST VERBALIZE COCKPIT CALIBRATIONS. START BUTTON ENGAGES UPON RULES COMPLETION.
+            </p>
+          </div>
+
+          <!-- Cheat code panel (premium hidden-terminal style) -->
+          <div id="cheat-container" class="cheat-panel">
+            <input id="cheat-input" type="text" placeholder="ENTER ACCESS CODE" class="cheat-input" />
+            <button id="cheat-submit" class="glow-pulse-btn">ACTIVATE</button>
+          </div>
+
+          <!-- Hidden until rules speaking terminates -->
+          <button id="btn-start-assessment" class="glow-cyber-btn hidden">START DIAGNOSTIC MATRIX</button>
+        </section>
+
+        <!-- Screen 2: Cinematic decrypter (minimum 2s loading) -->
+        <section id="screen-reveal" class="hidden">
+          <div class="reveal-wrap">
+            <div class="reveal-scanner-ring"></div>
+            <div id="reveal-decrypt" class="reveal-line"></div>
+            <div id="reveal-auth" class="reveal-line"></div>
+            <div id="reveal-render" class="reveal-line"></div>
+          </div>
+        </section>
+
+        <!-- Screen 3: Quiz options cockpit -->
+        <section id="screen-quiz" class="hidden">
+          <div id="active-question-text"></div>
+          <div id="choices-container"></div>
+        </section>
+
+        <!-- Screen 4: Results profiles dev logs -->
+        <section id="screen-results" class="hidden">
+          <h2 class="results-title">DIAGNOSTIC ARCHIVE REPORT</h2>
+          <div id="results-rank">RAW NODE RECRUIT</div>
+          
+          <div class="results-score-panel">
+            <span class="score-label">ACCURACY METRIC:</span>
+            <span id="results-score-value">0 / 20</span>
+          </div>
+
+          <!-- Failed run lock message (CRITICAL: Complete website not unlocked :() -->
+          <div id="results-lock-box" class="hidden"></div>
+
+          <!-- Perfect run specs panel -->
+          <div id="results-perfect-specs" class="hidden">
+            <div class="perfect-message">CORE ASCENSION ACCEPTED</div>
+            <p class="perfect-desc">ALL TWENTY NEURAL NODES RESOLVED. ENGAGING HOLOGRAPHIC REACTOR SHIELDING.</p>
+          </div>
+
+          <div id="results-report-text"></div>
+
+          <div class="results-actions">
+            <button id="btn-restart" class="glow-pulse-btn">RE-INITIALIZE DIAGNOSTICS</button>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+
+    <!-- Bottom monospace log terminal cockpit console -->
+    <footer id="terminal-container" class="sci-fi-corners">
+      <div id="terminal-cockpit"></div>
+    </footer>
+
+  </div>
+
+  <!-- Phase 20 signature ascension reactor overlay container -->
+  <div id="reactor-container" class="hidden"></div>
+
+  <!-- Boot Orchestrator script -->
+  <script type="module" src="Js/App.js"></script>
+</body>
+</html>

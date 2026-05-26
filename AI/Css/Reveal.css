@@ -1,0 +1,77 @@
+/* Cinematic Decrypt and Transition Overlay for Quizzora_v2 */
+
+#screen-reveal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  min-height: 250px;
+}
+
+.reveal-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Rotating Loader Scanner ring */
+.reveal-scanner-ring {
+  width: 60px;
+  height: 60px;
+  border: 2px dashed var(--border-color);
+  border-radius: 50%;
+  position: relative;
+  animation: spinRevealScanner 4s linear infinite;
+  transition: all var(--transition-speed) ease;
+}
+
+body.unlock-theme .reveal-scanner-ring {
+  border: 2px dashed var(--accent-color);
+  border-top-color: transparent;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+@keyframes spinRevealScanner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Status decryption lines */
+.reveal-line {
+  font-family: var(--font-holographic);
+  font-size: 1rem;
+  color: var(--text-primary);
+  text-align: center;
+  min-height: 20px;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+#reveal-decrypt {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+#reveal-auth {
+  color: var(--accent-purple);
+}
+
+#reveal-render {
+  color: #ffffff;
+}
+
+/* Phase 11: Decryption reveals look richer with text shadows */
+body.unlock-reveal .reveal-line {
+  text-shadow: 0 0 5px currentColor;
+}
+body.unlock-reveal .reveal-scanner-ring {
+  border-width: 3px;
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.3),
+    inset 0 0 10px rgba(0, 240, 255, 0.1);
+}

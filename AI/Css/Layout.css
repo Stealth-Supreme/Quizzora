@@ -1,0 +1,69 @@
+/* Layout & Positioning Modules for Quizzora_v2 */
+
+#app-viewport {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Phase 2: Layout refinement centering modules */
+body.unlock-layout #app-viewport {
+  padding: 20px;
+}
+
+/* Cockpit HUD Framework */
+#hud-frame-container {
+  width: 100%;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+  transition: all var(--transition-speed) ease;
+}
+
+/* Central Active Screen dashboard window */
+#main-cockpit-console {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  min-height: 0; /* allows box compression in flex container */
+  position: relative;
+  transition: all var(--transition-speed) ease;
+}
+
+.console-panel {
+  width: 100%;
+  max-width: 800px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  background: var(--panel-bg);
+  padding: 20px;
+  transition: all var(--transition-speed) ease;
+}
+
+/* Monospace bottom log terminal container */
+#terminal-container {
+  height: 150px;
+  width: 100%;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+  background: var(--panel-bg);
+  padding: 10px 15px;
+  overflow: hidden;
+  transition: all var(--transition-speed) ease;
+}
+
+body.unlock-layout .console-panel {
+  border-radius: 4px;
+}
+
+body.unlock-layout #terminal-container {
+  border-radius: 4px;
+}

@@ -1,0 +1,77 @@
+/* Base Reset & Core Design System for Quizzora_v2 */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* Raw default wireframe variables (Phase 0) */
+  --bg-color: #000000;
+  --panel-bg: rgba(0, 0, 0, 0.95);
+  --border-color: #333333;
+  --text-primary: #ffffff;
+  --text-muted: #666666;
+  --accent-color: #39ff14; /* Retro Green */
+  --accent-glow: 0 0 0px transparent;
+  
+  --font-holographic: 'Share Tech Mono', monospace;
+  --font-hud: 'Orbitron', sans-serif;
+  
+  --transition-speed: 0.15s;
+  --glow-intensity: 0;
+  --blur-amount: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-holographic);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Base button defaults */
+button {
+  font-family: var(--font-holographic);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  font-size: 1rem;
+  transition: all var(--transition-speed) ease;
+}
+
+button:hover {
+  background: var(--text-primary);
+  color: var(--bg-color);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Hidden elements helper */
+.hidden {
+  display: none !important;
+}
+
+/* Scrolling HUD text animations */
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scrolling-hud-text {
+  white-space: nowrap;
+  animation: scrollText 12s linear infinite;
+  display: inline-block;
+}
