@@ -422,7 +422,7 @@ class UIRenderer {
     prank.innerHTML = `<div>I love someone<br/>...........</div>`;
     await wait(1500);
     
-    prank.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    prank.innerHTML = `<iframe width="100%" height="100%" src="https://youtube.com/shorts/Ay8lynMZ4mE?si=-c5XtqARWXIDhuKS?autoplay=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
   }
 
   triggerCelebrationRipple(el) {
